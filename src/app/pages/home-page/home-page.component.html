@@ -1,0 +1,3 @@
+<p>home-page works!</p>
+<div *ngFor="let dash of dashboards"> {{dash}} <button [routerLink]="'/'+dash">View</button></div>
+<button [routerLink]="'/add'">Create dashboard</button>
