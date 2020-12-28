@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DashboardStorageService} from "../../services/dashboard-storage.service";
 import {DashboardModel} from "../../models/dashboardModel";
@@ -12,14 +12,17 @@ export class DashboardAddPageComponent implements OnInit {
 
   dashboard: DashboardModel = {} as DashboardModel;
 
-  constructor(private router: Router, private dashboardStorage: DashboardStorageService) { }
+  constructor(private router: Router, private dashboardStorage: DashboardStorageService) {
+
+  }
 
   ngOnInit(): void {
   }
 
-  addDashboard(){
-   this.dashboardStorage.saveDashboard(this.dashboard);
-   this.router.navigate(['/']);
+  addDashboard() {
+    this.dashboard.lists = [];
+    this.dashboardStorage.saveDashboard(this.dashboard);
+    this.router.navigate(['/']);
   }
 
 }

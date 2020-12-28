@@ -1,1 +1,14 @@
-<p>todo-list-component works!</p>
+<div class="container">
+  <div *ngIf="todoList">
+    {{todoList.title}}
+  </div>
+
+
+  <div>
+    Enter the item <input [(ngModel)]="itemName">
+    <button (click)="addItem()">Add item</button>
+
+    <app-todo-item-component *ngFor="let item of todoList.items" [todoItem]="item"></app-todo-item-component>
+  </div>
+  <button (click)="callDelete()">Delete list</button>
+</div>

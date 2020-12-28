@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
   constructor(private dashboardStorage: DashboardStorageService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.dashboards = this.dashboardStorage.getDashboardTitles();
   }
 

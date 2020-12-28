@@ -11,7 +11,7 @@ export class DashboardStorageService {
     if (json) {
       return JSON.parse(json);
     } else {
-      return {} as DashboardModel;
+      return undefined;
     }
   }
 

@@ -1,5 +1,22 @@
 <p>dashboard-view-page works!</p>
+
 <div *ngIf="dashboardView">
-  <div>{{dashboardView.title}}</div>
-  <button [routerLink]="'/'" >Cansel</button>
+  <div>Title of dashboard: {{dashboardView.title}}</div>
+
+  <div>
+    Enter the title of list: <input [(ngModel)]="listName">
+    <button (click)="addList()">Add list</button>
+  </div>
+
+  <div > <!--style="display: flow-root" -->
+    <app-todo-list-component style="display: inline-block; float: left"
+                             *ngFor="let list of dashboardView.lists"
+                             [todoList]="list"
+                             (delete)="DeleteList(list)" ></app-todo-list-component>
+  </div>
+
 </div>
+
+<div *ngIf="!dashboardView"> Page is not found </div>
+
+<button [routerLink]="'/'" >Cansel</button>
