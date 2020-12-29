@@ -3,6 +3,7 @@ import {DashboardModel} from "../../models/dashboardModel";
 import {DashboardStorageService} from "../../services/dashboard-storage.service";
 import {ActivatedRoute} from "@angular/router";
 import {TodoListModel} from "../../models/todoListModel";
+import {TodoItemModel} from "../../models/todoItemModel";
 
 @Component({
   selector: 'app-dashboard-view-page',
@@ -33,6 +34,14 @@ export class DashboardViewPageComponent implements OnInit {
     this.dashboardView.lists=this.dashboardView.lists.filter(e => e.title !== list.title)
     this.dashboardStorage.saveDashboard(this.dashboardView);
 
+  }
+
+  DeleteItem(list: TodoListModel){
+    this.dashboardStorage.saveDashboard(this.dashboardView);
+  }
+
+  AddItemSave(list: TodoListModel){
+    this.dashboardStorage.saveDashboard(this.dashboardView);
   }
 
   ngOnInit(): void {

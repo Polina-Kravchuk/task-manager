@@ -8,7 +8,7 @@
     Enter the item <input [(ngModel)]="itemName">
     <button (click)="addItem()">Add item</button>
 
-    <app-todo-item-component *ngFor="let item of todoList.items" [todoItem]="item"></app-todo-item-component>
+    <app-todo-item-component *ngFor="let item of todoList.items" (deleteItem)="DeleteItemFunc(item)" [todoItem]="item"></app-todo-item-component>
   </div>
   <button (click)="callDelete()">Delete list</button>
 </div>

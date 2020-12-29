@@ -22,6 +22,17 @@ export class TodoListComponentComponent implements OnInit {
     this.delete.emit();
   }
 
+  @Output()
+  deleteItemm: EventEmitter<any> = new EventEmitter<any>();
+
+  DeleteItemFunc(item: TodoItemModel){
+    this.todoList.items = this.todoList.items.filter(e => e.text !==item.text)
+    this.deleteItemm.emit();
+  }
+
+  @Output()
+  addItemm: EventEmitter<any> = new EventEmitter<any>();
+
   constructor() {
   }
 
@@ -29,6 +40,7 @@ export class TodoListComponentComponent implements OnInit {
     const todoItem = new TodoItemModel();
     todoItem.text=this.itemName;
     this.todoList.items.push(todoItem)
+    this.addItemm.emit();
     this.itemName='';
   }
 

@@ -1,4 +1,4 @@
-<p>dashboard-view-page works!</p>
+
 
 <div *ngIf="dashboardView">
   <div>Title of dashboard: {{dashboardView.title}}</div>
@@ -12,7 +12,9 @@
     <app-todo-list-component style="display: inline-block; float: left"
                              *ngFor="let list of dashboardView.lists"
                              [todoList]="list"
-                             (delete)="DeleteList(list)" ></app-todo-list-component>
+                             (delete)="DeleteList(list)"
+                              (addItemm)="AddItemSave(list)"
+                              (deleteItemm)="DeleteItem(list)"></app-todo-list-component>
   </div>
 
 </div>
