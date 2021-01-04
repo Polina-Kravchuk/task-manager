@@ -1,3 +1,13 @@
-<p>home-page works!</p>
-<div *ngFor="let dash of dashboards"> {{dash}} <button [routerLink]="'/'+dash">View</button></div>
-<button [routerLink]="'/add'">Create dashboard</button>
+
+<div>
+  <div  *ngFor="let dash of dashboards" class="lineTitels">
+    {{dash}} <button mat-raised-button [routerLink]="'/'+dash" style="float: right">View</button>
+  </div>
+</div>
+
+<br/>
+<div>
+ <!-- <button mat-button>Basic</button> -->
+
+  <button mat-raised-button color="accent" [routerLink]="'/add'" >Create dashboard</button>
+</div>
