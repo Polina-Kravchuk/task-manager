@@ -1,7 +1,10 @@
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+
 <div>
   <div  *ngFor="let dash of dashboards" class="lineTitels">
-    {{dash}} <button mat-raised-button [routerLink]="'/'+dash" style="float: right">View</button>
+    <strong>{{dash}}</strong> <button mat-raised-button [routerLink]="'/'+dash" style="float: right">View</button>
   </div>
 </div>
 

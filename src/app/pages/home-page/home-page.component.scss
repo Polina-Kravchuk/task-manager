@@ -1,9 +1,13 @@
 .lineTitels{
   width: 200px;
   color: black;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Xanh Mono', monospace;
+
   display: inline-block;
   float: left;
+
+  background-image: linear-gradient(to top, #fad0c4 0%, #fad0c4 1%, #ffd1ff 100%);
 
   border: 1px solid #808080;
   border-radius: 5px;

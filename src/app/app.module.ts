@@ -13,6 +13,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { TodoListComponentComponent } from './components/todo-list-component/todo-list-component.component';
 import { TodoItemComponentComponent } from './components/todo-item-component/todo-item-component.component';
 import {FormsModule} from "@angular/forms";
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {FormsModule} from "@angular/forms";
         MatToolbarModule,
         MatIconModule,
         MatButtonModule,
-        FormsModule
+        FormsModule,
+        MatInputModule
     ],
   providers: [],
   bootstrap: [AppComponent]

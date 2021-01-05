@@ -1,7 +1,17 @@
-<p>dashboard-add-page works!</p>
-<div>
-<input [(ngModel)]="dashboard.title">
 
-<button (click)="addDashboard()">Add</button>
-<button [routerLink]="'/'" >Cansel</button>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+
+<div class="add-container">
+  <div class="add-title">Create your dashboard</div>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  </mat-form-field>
+
+  <input [(ngModel)]="dashboard.title">
+
+  <button (click)="addDashboard()">Add</button>
+  <button [routerLink]="'/'" >Cansel</button>
 </div>
