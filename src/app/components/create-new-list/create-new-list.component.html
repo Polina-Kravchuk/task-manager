@@ -1,0 +1,6 @@
+<button (click)="InvertState()" *ngIf="!isTab" > Create new list</button>
+<div *ngIf="isTab">
+  <input [(ngModel)]="listName">
+  <button (click)="callAddList()">Add list</button>
+  <button (click)="InvertState()">Cancel</button>
+</div>

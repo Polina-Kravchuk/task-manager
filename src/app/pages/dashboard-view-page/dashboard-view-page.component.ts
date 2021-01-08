@@ -13,21 +13,22 @@ import {TodoItemModel} from "../../models/todoItemModel";
 export class DashboardViewPageComponent implements OnInit {
 
   dashboardView: DashboardModel;
+
   // dashboardViewList: TodoListModel = {} as TodoListModel;
-  listName: string;
+
+  // listName: string;
 
   constructor(private dashboardStorage: DashboardStorageService,
               private activateRoute: ActivatedRoute) {
 
   }
 
-  addList() {
+  addList(listName:string) {
     const list = new TodoListModel();
-    list.title = this.listName;
+    list.title = listName;
     list.items = [];
     this.dashboardView.lists.push(list);
     this.dashboardStorage.saveDashboard(this.dashboardView);
-    this.listName = '';
   }
 
   DeleteList(list: TodoListModel){

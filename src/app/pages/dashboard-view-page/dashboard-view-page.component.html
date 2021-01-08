@@ -6,15 +6,19 @@
   <div class="view-title">Title of dashboard: <strong>{{dashboardView.title}}</strong> </div>
 
   <div>
+    <!--
     <div class="view-creation"> Create new list:</div>
     <mat-form-field class="view-input">
       <mat-label>List name</mat-label>
       <input matInput placeholder="Ex. Home routine" value="" [(ngModel)]="listName">
     </mat-form-field>
+    -->
 
     <!-- Enter the title of new list: <input [(ngModel)]="listName"> -->
 
+    <!--
     <button class="view-button" mat-raised-button color="accent" (click)="addList()">Add list</button>
+    -->
   </div>
 
   <div > <!--style="display: flow-root" -->
@@ -24,10 +28,13 @@
                              (delete)="DeleteList(list)"
                               (addItemm)="AddItemSave(list)"
                               (deleteItemm)="DeleteItem(list)"></app-todo-list-component>
+    <app-create-new-list (addList)="addList($event)"></app-create-new-list>
   </div>
 
 </div>
 
+
+
 <div *ngIf="!dashboardView"> Page is not found </div>
 
-<button mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>
+<div> <button mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button> </div>

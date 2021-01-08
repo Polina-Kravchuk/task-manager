@@ -1,0 +1,76 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+
+<div class="container">
+  <div class="title">Registration</div>
+
+  <div>
+    <mat-form-field class="add-input">
+      <mat-label>User name</mat-label>
+      <input matInput placeholder="" value="" [formControl]="nameFormControl" >
+
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+
+      <mat-error *ngIf="nameFormControl.hasError('minlength')">
+        Name should be more than 3 characters
+      </mat-error>
+
+      <mat-error *ngIf="nameFormControl.hasError('maxlength')">
+        Name should be less than 16 characters
+      </mat-error>
+
+      <mat-error *ngIf="nameFormControl.hasError('pattern')">
+        Name should be a-z and A-Z
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="add-input">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="" value="" [formControl]="passwordFormControl" >
+
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+
+      <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+        Name should be more than 3 characters
+      </mat-error>
+
+      <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+        Name should be less than 16 characters
+      </mat-error>
+
+      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+        Name should be a-z and A-Z
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="add-input">
+      <mat-label>Password again</mat-label>
+      <input matInput placeholder="" value="" [formControl]="passwordAgainFormControl">
+      <mat-error *ngIf="passwordAgainFormControl.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+
+      <mat-error *ngIf="passwordAgainFormControl.hasError('minlength')">
+        Name should be more than 3 characters
+      </mat-error>
+
+      <mat-error *ngIf="passwordAgainFormControl.hasError('maxlength')">
+        Name should be less than 16 characters
+      </mat-error>
+
+      <mat-error *ngIf="passwordAgainFormControl.hasError('pattern')">
+        Name should be a-z and A-Z
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <button class="button" mat-raised-button color="accent" (click)="registrate()" >Registrate</button>
+  <button class="button" mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>

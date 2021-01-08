@@ -12,8 +12,11 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { TodoListComponentComponent } from './components/todo-list-component/todo-list-component.component';
 import { TodoItemComponentComponent } from './components/todo-item-component/todo-item-component.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from '@angular/material/input';
+import { CreateNewListComponent } from './components/create-new-list/create-new-list.component';
+import { LogInComponent } from './pages/log-in/log-in.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +25,22 @@ import {MatInputModule} from '@angular/material/input';
     DashboardViewPageComponent,
     DashboardAddPageComponent,
     TodoListComponentComponent,
-    TodoItemComponentComponent
+    TodoItemComponentComponent,
+    CreateNewListComponent,
+    LogInComponent,
+    RegistrationComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        FormsModule,
-        MatInputModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -17,12 +17,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
 
     <mat-toolbar class="gradient">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-      </button>
+
       <span> <strong> My Taskmanager</strong> </span>
-      <span class="example-spacer"></span>
+
+      <div>
+         <button mat-icon-button [routerLink]="'/registration'">
+            <mat-icon>assignment_ind</mat-icon>
+         </button>
+        <button mat-icon-button [routerLink]="'/login'">
+            <mat-icon>login</mat-icon>
+        </button>
+      </div>
+
     </mat-toolbar>
+
 
 
 <div class="router-style">
