@@ -5,13 +5,13 @@
 <div class="add-container">
   <div class="add-title">Create your dashboard</div>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi">
+  <mat-form-field class="add-input">
+    <mat-label>Dashboard name</mat-label>
+    <input matInput placeholder="Ex. Daily routine" value="" [(ngModel)]="dashboard.title">
   </mat-form-field>
 
-  <input [(ngModel)]="dashboard.title">
+  <!-- <input [(ngModel)]="dashboard.title"> -->
 
-  <button (click)="addDashboard()">Add</button>
-  <button [routerLink]="'/'" >Cansel</button>
+  <button class="add-button" mat-raised-button color="accent" (click)="addDashboard()">Add</button>
+  <button class="add-button" mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>
 </div>

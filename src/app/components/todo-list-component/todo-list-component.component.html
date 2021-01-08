@@ -1,14 +1,25 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
+
 <div class="container">
   <div *ngIf="todoList">
-    {{todoList.title}}
+   <strong>{{todoList.title}}</strong>
   </div>
 
 
   <div>
-    Enter the item <input [(ngModel)]="itemName">
-    <button (click)="addItem()">Add item</button>
+    Enter the item:
+    <mat-form-field >
+      <mat-label>Item</mat-label>
+      <input matInput  value="" [(ngModel)]="itemName">
+    </mat-form-field>
+
+    <!-- <input [(ngModel)]="itemName"> -->
+
+
+    <button mat-raised-button color="accent" (click)="addItem()">Add item</button>
 
     <app-todo-item-component *ngFor="let item of todoList.items" (deleteItem)="DeleteItemFunc(item)" [todoItem]="item"></app-todo-item-component>
   </div>
-  <button (click)="callDelete()">Delete list</button>
+  <button mat-raised-button color="primary" (click)="callDelete()">Delete list</button>
 </div>

@@ -1,11 +1,20 @@
 
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
 
 <div *ngIf="dashboardView">
-  <div>Title of dashboard: {{dashboardView.title}}</div>
+  <div class="view-title">Title of dashboard: <strong>{{dashboardView.title}}</strong> </div>
 
   <div>
-    Enter the title of list: <input [(ngModel)]="listName">
-    <button (click)="addList()">Add list</button>
+    <div class="view-creation"> Create new list:</div>
+    <mat-form-field class="view-input">
+      <mat-label>List name</mat-label>
+      <input matInput placeholder="Ex. Home routine" value="" [(ngModel)]="listName">
+    </mat-form-field>
+
+    <!-- Enter the title of new list: <input [(ngModel)]="listName"> -->
+
+    <button class="view-button" mat-raised-button color="accent" (click)="addList()">Add list</button>
   </div>
 
   <div > <!--style="display: flow-root" -->
@@ -21,4 +30,4 @@
 
 <div *ngIf="!dashboardView"> Page is not found </div>
 
-<button [routerLink]="'/'" >Cansel</button>
+<button mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>
