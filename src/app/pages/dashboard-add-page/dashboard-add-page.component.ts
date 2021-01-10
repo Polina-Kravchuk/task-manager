@@ -10,9 +10,12 @@ import {DashboardModel} from "../../models/dashboardModel";
 })
 export class DashboardAddPageComponent implements OnInit {
 
-  dashboard: DashboardModel = {} as DashboardModel;
+  // dashboard: DashboardModel = {} as DashboardModel;
+  dashboardTitle: string;
 
-  constructor(private router: Router, private dashboardStorage: DashboardStorageService) {
+  constructor(
+    private router: Router,
+    private dashboardStorage: DashboardStorageService) {
 
   }
 
@@ -20,9 +23,12 @@ export class DashboardAddPageComponent implements OnInit {
   }
 
   addDashboard() {
-    this.dashboard.lists = [];
-    this.dashboardStorage.saveDashboard(this.dashboard);
-    this.router.navigate(['/']);
+    this.dashboardStorage.createDashboard(this.dashboardTitle).subscribe(e=>{
+      this.router.navigate(['/']);
+    });
+    // this.dashboard.lists = [];
+    // this.dashboardStorage.saveDashboard(this.dashboard);
+    // this.router.navigate(['/']);
   }
 
 }

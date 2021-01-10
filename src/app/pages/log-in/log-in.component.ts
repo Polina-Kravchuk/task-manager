@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-log-in',
@@ -10,6 +12,7 @@ export class LogInComponent implements OnInit {
 
   name: string;
   password: string;
+  error: string;
 
   nameFormControl = new FormControl('', [
     Validators.required,
@@ -22,7 +25,7 @@ export class LogInComponent implements OnInit {
     Validators.required,
     Validators.minLength(3),
     Validators.maxLength(16),
-    Validators.pattern('[a-zA-Z]*')
+
   ]);
 
   formGroup = new FormGroup({
@@ -35,9 +38,19 @@ export class LogInComponent implements OnInit {
       this.formGroup.markAllAsTouched();
       return;
     }
+    this.authService.logIn(this.name, this.password).subscribe(e=>{
+      if (e.error) {
+        this.error=e.error;
+      } else {
+        this.authService.saveUserAndJwt(e);
+        this.router.navigate(['/']);
+      }
+    });
   }
 
-  constructor() { }
+
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }

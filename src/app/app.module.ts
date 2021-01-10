@@ -17,6 +17,8 @@ import {MatInputModule} from '@angular/material/input';
 import { CreateNewListComponent } from './components/create-new-list/create-new-list.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {TokenInterceptorService} from "./services/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -41,7 +44,13 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     MatInputModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

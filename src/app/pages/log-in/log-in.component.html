@@ -8,7 +8,7 @@
   <div>
     <mat-form-field class="input">
       <mat-label>User name</mat-label>
-      <input matInput placeholder="" value="" [formControl]="nameFormControl">
+      <input matInput placeholder="" value="" [formControl]="nameFormControl" [(ngModel)]="name">
       <mat-error *ngIf="nameFormControl.hasError('required')">
         Name is <strong>required</strong>
       </mat-error>
@@ -30,25 +30,22 @@
   <div>
     <mat-form-field class="input">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="" value="" [formControl]="passwordFormControl">
+      <input matInput placeholder="" value="" [formControl]="passwordFormControl" [(ngModel)]="password">
       <mat-error *ngIf="passwordFormControl.hasError('required')">
-        Name is <strong>required</strong>
+        Password is <strong>required</strong>
       </mat-error>
 
       <mat-error *ngIf="passwordFormControl.hasError('minlength')">
-        Name should be more than 3 characters
+        Password should be more than 3 characters
       </mat-error>
 
       <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
-        Name should be less than 16 characters
+        Password should be less than 16 characters
       </mat-error>
 
-      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
-        Name should be a-z and A-Z
-      </mat-error>
     </mat-form-field>
     </div>
-
+  <div *ngIf="error">{{error}}</div>
   <button class="button" mat-raised-button color="accent" (click)="logIn()" >Log In</button>
   <button class="button" mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>
 </div>

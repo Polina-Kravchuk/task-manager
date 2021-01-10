@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  serverUrl: 'http://59247e3bfdb5.ngrok.io'
+
+  //http://0ce4a913334b.ngrok.io/
 };
 
 /*

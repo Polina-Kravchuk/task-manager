@@ -28,27 +28,33 @@ export class DashboardViewPageComponent implements OnInit {
     list.title = listName;
     list.items = [];
     this.dashboardView.lists.push(list);
-    this.dashboardStorage.saveDashboard(this.dashboardView);
+    this.dashboardStorage.saveDashboard(this.dashboardView).subscribe();
   }
 
   DeleteList(list: TodoListModel){
     this.dashboardView.lists=this.dashboardView.lists.filter(e => e.title !== list.title)
-    this.dashboardStorage.saveDashboard(this.dashboardView);
+    this.dashboardStorage.saveDashboard(this.dashboardView).subscribe();
 
   }
 
   DeleteItem(list: TodoListModel){
-    this.dashboardStorage.saveDashboard(this.dashboardView);
+    this.dashboardStorage.saveDashboard(this.dashboardView).subscribe();
   }
 
   AddItemSave(list: TodoListModel){
-    this.dashboardStorage.saveDashboard(this.dashboardView);
+    this.dashboardStorage.saveDashboard(this.dashboardView).subscribe();
   }
 
   ngOnInit(): void {
     const idTitle = this.activateRoute.snapshot.params['title'];
-    this.dashboardView = this.dashboardStorage.getDashboard(idTitle);
-    console.log(this.dashboardView);
+
+    this.dashboardStorage.getDashboard(idTitle).subscribe(e=> {
+      this.dashboardView = e;
+    });
+    // this.dashboardView = this.dashboardStorage.getDashboard(idTitle);
+    // console.log(this.dashboardView);
   }
+
+
 
 }

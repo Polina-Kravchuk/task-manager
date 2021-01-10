@@ -1,4 +1,3 @@
-
 <!-- <mat-toolbar class="gradient" color="primary">
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
@@ -16,21 +15,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
 
-    <mat-toolbar class="gradient">
+<mat-toolbar class="gradient">
 
-      <span> <strong> My Taskmanager</strong> </span>
+  <span> <strong> My Taskmanager</strong> </span>
 
-      <div>
-         <button mat-icon-button [routerLink]="'/registration'">
-            <mat-icon>assignment_ind</mat-icon>
-         </button>
-        <button mat-icon-button [routerLink]="'/login'">
-            <mat-icon>login</mat-icon>
-        </button>
-      </div>
+  <div *ngIf="!authService.getUserName()">
+    <a mat-icon-button [routerLink]="'/registration'">
+      <mat-icon>assignment_ind</mat-icon>
+    </a>
+    <a mat-icon-button [routerLink]="'/login'">
+      <mat-icon>login</mat-icon>
+    </a>
+  </div>
 
-    </mat-toolbar>
+  <div *ngIf="authService.getUserName()">
+    <div>Hello {{authService.getUserName()}}</div>
+    <button mat-button (click)="authService.logout()">
+      Logout
+    </button>
+  </div>
 
+</mat-toolbar>
 
 
 <div class="router-style">

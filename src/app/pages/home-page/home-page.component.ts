@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DashboardStorageService} from "../../services/dashboard-storage.service";
 import {DashboardModel} from "../../models/dashboardModel";
 
@@ -9,13 +9,16 @@ import {DashboardModel} from "../../models/dashboardModel";
 })
 export class HomePageComponent implements OnInit {
 
-  dashboards: string[]=[];
+  dashboards: string[] = [];
 
   constructor(private dashboardStorage: DashboardStorageService) {
   }
 
   ngOnInit() {
-    this.dashboards = this.dashboardStorage.getDashboardTitles();
+    // this.dashboards = this.dashboardStorage.getDashboardTitles();
+    this.dashboardStorage.getDashboardTitles().subscribe(e => {
+      this.dashboards = e;
+    });
   }
 
 }
