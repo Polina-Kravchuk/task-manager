@@ -4,6 +4,7 @@ import {DashboardStorageService} from "../../services/dashboard-storage.service"
 import {ActivatedRoute} from "@angular/router";
 import {TodoListModel} from "../../models/todoListModel";
 import {TodoItemModel} from "../../models/todoItemModel";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-dashboard-view-page',
@@ -19,7 +20,8 @@ export class DashboardViewPageComponent implements OnInit {
   // listName: string;
 
   constructor(private dashboardStorage: DashboardStorageService,
-              private activateRoute: ActivatedRoute) {
+              private activateRoute: ActivatedRoute,
+              public authService: AuthService) {
 
   }
 

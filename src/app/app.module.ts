@@ -19,6 +19,7 @@ import { LogInComponent } from './pages/log-in/log-in.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptorService} from "./services/token-interceptor.service";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {TokenInterceptorService} from "./services/token-interceptor.service";
     MatButtonModule,
     FormsModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

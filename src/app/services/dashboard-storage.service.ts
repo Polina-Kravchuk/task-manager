@@ -39,6 +39,10 @@ export class DashboardStorageService {
     })
   }
 
+  deleteDashboard(title: string): Observable<any>{
+    return this.http.delete(`${environment.serverUrl}/dashboard/${title}`)
+  }
+
   saveDashboard(item: DashboardModel): Observable<any>  {
     return this.http.put(`${environment.serverUrl}/dashboard`,item)
     // const json = JSON.stringify(item);

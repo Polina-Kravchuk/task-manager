@@ -2,14 +2,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
 
+<div *ngIf="!authService.getUserName()" class="home-container-logout">
+
+  <div class="home-title-logout"> Go to your account or register</div>
+  <button mat-raised-button color="accent" [routerLink]="'/registration'" > Registration <mat-icon>assignment_ind</mat-icon> </button>
+  <button mat-raised-button color="primary" [routerLink]="'/login'" > Login <mat-icon>login</mat-icon> </button>
+</div>
+
+<div *ngIf="authService.getUserName()">
 <div>
   <div  *ngFor="let dash of dashboards" class="lineTitels">
-    <strong>{{dash}}</strong> <button mat-raised-button [routerLink]="'/'+dash" style="float: right">View</button>
+    <strong>{{dash}}</strong>
+    <button mat-raised-button [disabled]="isLoading" [routerLink]="'/'+dash" style="float: right">View</button>
+    <button mat-raised-button [disabled]="isLoading" (click)="deleteDashboard(dash)" style="float: right">Delete</button>
   </div>
 </div>
 
 <br/>
 
 <div>
-  <button class="home-button" mat-raised-button color="accent" [routerLink]="'/add'" >Create dashboard</button>
+  <button class="home-button" mat-raised-button color="accent" [disabled]="isLoading" [routerLink]="'/add'" >Create dashboard</button>
+</div>
+
+  <div *ngIf="isLoading" class="loading">
+    <div>
+      <mat-spinner></mat-spinner>
+      Loading...
+    </div>
+  </div>
 </div>

@@ -17,3 +17,19 @@
 .view-button{
   margin: 2px;
 }
+
+.home-container-logout{
+  width: 100%;
+  max-width: 1200px; /* максимальный размер контейнера */
+  margin: 0 auto; /* выравнивание по центру */
+
+  justify-content: center;
+  text-align: center;
+}
+
+.home-title-logout{
+  font-family: 'Xanh Mono', monospace;
+  font-size: 30px;
+  font-weight:700;
+  padding: 8px;
+}

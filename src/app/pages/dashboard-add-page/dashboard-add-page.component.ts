@@ -12,6 +12,8 @@ export class DashboardAddPageComponent implements OnInit {
 
   // dashboard: DashboardModel = {} as DashboardModel;
   dashboardTitle: string;
+  isLoading: boolean;
+  error: string;
 
   constructor(
     private router: Router,
@@ -23,9 +25,17 @@ export class DashboardAddPageComponent implements OnInit {
   }
 
   addDashboard() {
+    this.isLoading=true;
     this.dashboardStorage.createDashboard(this.dashboardTitle).subscribe(e=>{
-      this.router.navigate(['/']);
+      if (e.error) {
+        this.error=e.error;
+        this.isLoading = false;
+      } else {
+        this.isLoading = false;
+        this.router.navigate(['/']);
+      }
     });
+
     // this.dashboard.lists = [];
     // this.dashboardStorage.saveDashboard(this.dashboard);
     // this.router.navigate(['/']);
