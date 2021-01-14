@@ -12,9 +12,9 @@
 <div *ngIf="authService.getUserName()">
 <div>
   <div  *ngFor="let dash of dashboards" class="lineTitels">
-    <strong>{{dash}}</strong>
-    <button mat-raised-button [disabled]="isLoading" [routerLink]="'/'+dash" style="float: right">View</button>
-    <button mat-raised-button [disabled]="isLoading" (click)="deleteDashboard(dash)" style="float: right">Delete</button>
+    <div class="dashes"><strong>{{dash}}</strong></div>
+    <button class="button" mat-raised-button [disabled]="isLoading" [routerLink]="'/'+dash" style="float: right">View</button>
+    <button class="button" mat-raised-button [disabled]="isLoading" (click)="deleteDashboard(dash)" style="float: right">Delete</button>
   </div>
 </div>
 

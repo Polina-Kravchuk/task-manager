@@ -29,9 +29,9 @@
   </div>
 
   <div *ngIf="authService.getUserName()">
-    <div>Hello {{authService.getUserName()}}</div>
-    <button mat-button (click)="authService.logout()">
-      Logout
+    <span style="font-size: 28px; margin-top: 8px; margin-right: 8px">Hello, {{authService.getUserName()}}</span>
+    <button style="float: right" mat-raised-button (click)="authService.logout()">
+      Logout <mat-icon>touch_app</mat-icon>
     </button>
   </div>
 

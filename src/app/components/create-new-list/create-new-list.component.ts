@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-new-list',
@@ -9,6 +10,9 @@ export class CreateNewListComponent implements OnInit {
 
   isTab: boolean;
   listName: string;
+
+  ListFormControl = new FormControl('', [
+    Validators.required ]);
 
   @Output()
   addList: EventEmitter<string> = new EventEmitter<string>();

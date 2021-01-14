@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TodoListModel} from "../../models/todoListModel";
 import {TodoItemModel} from "../../models/todoItemModel";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-todo-list-component',
@@ -11,6 +12,9 @@ export class TodoListComponentComponent implements OnInit {
 
   //todoItemInList: TodoItemModel;
   itemName: string;
+
+  ItemFormControl = new FormControl('', [
+    Validators.required ]);
 
   @Input()
   todoList: TodoListModel;

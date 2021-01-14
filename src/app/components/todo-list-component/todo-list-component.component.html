@@ -3,7 +3,7 @@
 
 <div class="container">
   <div *ngIf="todoList">
-   <strong>{{todoList.title}}</strong>
+   List title: <strong>{{todoList.title}}</strong>
   </div>
 
 
@@ -11,7 +11,10 @@
     Enter the item:
     <mat-form-field >
       <mat-label>Item</mat-label>
-      <input matInput  value="" [(ngModel)]="itemName">
+      <input matInput  value="" [formControl]="ItemFormControl" [(ngModel)]="itemName">
+      <mat-error *ngIf="ItemFormControl.hasError('required')">
+        Name of list is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <!-- <input [(ngModel)]="itemName"> -->

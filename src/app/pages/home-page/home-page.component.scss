@@ -1,5 +1,8 @@
 .lineTitels{
-  width: 200px;
+  max-width: 350px;
+  width: fit-content;
+  min-width: 200px;
+  height: auto;
   color: black;
   font-size: 25px;
   font-family: 'Xanh Mono', monospace;
@@ -7,12 +10,24 @@
   display: inline-block;
   float: left;
 
+  flex-direction: row;
+  align-items: stretch;
+
   background-image: linear-gradient(to top, #fad0c4 0%, #fad0c4 1%, #ffd1ff 100%);
 
   border: 1px solid #808080;
   border-radius: 5px;
   margin: 8px;
   padding: 8px;
+}
+
+.dashes{
+  max-width: 350px;
+  word-wrap: break-word;
+
+}
+.button{
+  margin: 4px;
 }
 
 .home-button{

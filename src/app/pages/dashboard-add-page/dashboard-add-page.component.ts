@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {DashboardStorageService} from "../../services/dashboard-storage.service";
 import {DashboardModel} from "../../models/dashboardModel";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-dashboard-add-page',
@@ -15,6 +16,9 @@ export class DashboardAddPageComponent implements OnInit {
   isLoading: boolean;
   error: string;
 
+  addListFormControl = new FormControl('', [
+    Validators.required ]);
+
   constructor(
     private router: Router,
     private dashboardStorage: DashboardStorageService) {
@@ -25,6 +29,10 @@ export class DashboardAddPageComponent implements OnInit {
   }
 
   addDashboard() {
+    if (this.addListFormControl.invalid) {
+      this.addListFormControl.markAllAsTouched();
+      return;
+    }
     this.isLoading=true;
     this.dashboardStorage.createDashboard(this.dashboardTitle).subscribe(e=>{
       if (e.error) {

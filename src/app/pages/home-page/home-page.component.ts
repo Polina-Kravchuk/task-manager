@@ -15,13 +15,16 @@ export class HomePageComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private dashboardStorage: DashboardStorageService,
-  public authService: AuthService) {
+              public authService: AuthService) {
   }
 
   deleteDashboard(title: string) {
-    this.isLoading=true;
+    this.isLoading = true;
     this.dashboardStorage.deleteDashboard(title).subscribe(e => {
       this.reloadData();
+    }, error => {
+      // todo : show error
+      this.isLoading = false;
     });
   }
 
@@ -31,10 +34,10 @@ export class HomePageComponent implements OnInit {
   }
 
   reloadData() {
-    this.isLoading=true;
+    this.isLoading = true;
     this.dashboardStorage.getDashboardTitles().subscribe(e => {
       this.dashboards = e;
-      this.isLoading=false;
+      this.isLoading = false;
     });
   }
 }
