@@ -16,8 +16,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
 
 <mat-toolbar class="gradient">
+  <div>
 
-  <span> <strong> My Taskmanager</strong> </span>
+    <span> <strong> My Taskmanager</strong> </span>
+    <button mat-icon-button [routerLink]="'/'">
+      <mat-icon style="margin-bottom: 8px">home</mat-icon>
+    </button>
+  </div>
 
   <div *ngIf="!authService.getUserName()">
     <a mat-icon-button [routerLink]="'/registration'">

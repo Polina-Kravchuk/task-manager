@@ -41,11 +41,16 @@ export class TodoListComponentComponent implements OnInit {
   }
 
   addItem() {
+    if (this.ItemFormControl.invalid) {
+      this.ItemFormControl.markAllAsTouched();
+      return;
+    }
     const todoItem = new TodoItemModel();
     todoItem.text=this.itemName;
     this.todoList.items.push(todoItem)
     this.addItemm.emit();
     this.itemName='';
+    this.ItemFormControl.markAsUntouched();
   }
 
   ngOnInit(): void {

@@ -21,8 +21,8 @@
     -->
   </div>
 
-  <div > <!--style="display: flow-root" -->
-    <app-todo-list-component style="display: inline-block; float: left"
+  <div class="container"> <!--style="display: flow-root" -->
+    <app-todo-list-component class="list"
                              *ngFor="let list of dashboardView.lists"
                              [todoList]="list"
                              (delete)="DeleteList(list)"
@@ -47,4 +47,4 @@
 
 </div>
 
-<div> <button mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button> </div>
+<!-- <div> <button mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button> </div> -->

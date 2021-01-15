@@ -3,6 +3,7 @@ import {DashboardStorageService} from "../../services/dashboard-storage.service"
 import {DashboardModel} from "../../models/dashboardModel";
 import {AuthService} from "../../services/auth.service";
 import {F} from "@angular/cdk/keycodes";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home-page',
@@ -15,7 +16,8 @@ export class HomePageComponent implements OnInit {
   isLoading: boolean;
 
   constructor(private dashboardStorage: DashboardStorageService,
-              public authService: AuthService) {
+              public authService: AuthService,
+              private _snackBar: MatSnackBar) {
   }
 
   deleteDashboard(title: string) {
@@ -23,7 +25,9 @@ export class HomePageComponent implements OnInit {
     this.dashboardStorage.deleteDashboard(title).subscribe(e => {
       this.reloadData();
     }, error => {
-      // todo : show error
+      this._snackBar.open('Error 505: Internal Server Error',undefined, {
+        duration: 2000});
+      // to do : show error
       this.isLoading = false;
     });
   }

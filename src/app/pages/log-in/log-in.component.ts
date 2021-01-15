@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-log-in',
@@ -45,12 +46,17 @@ export class LogInComponent implements OnInit {
         this.authService.saveUserAndJwt(e);
         this.router.navigate(['/']);
       }
+    }, err => {
+      this._snackBar.open('Error 505: Internal Server Error', undefined, {
+        duration: 2000
+      });
     });
   }
 
 
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }

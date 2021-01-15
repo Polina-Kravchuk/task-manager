@@ -18,6 +18,10 @@ export class CreateNewListComponent implements OnInit {
   addList: EventEmitter<string> = new EventEmitter<string>();
 
   callAddList() {
+    if (this.ListFormControl.invalid) {
+      this.ListFormControl.markAllAsTouched();
+      return;
+    }
     this.addList.emit(this.listName);
     this.InvertState();
     this.listName='';

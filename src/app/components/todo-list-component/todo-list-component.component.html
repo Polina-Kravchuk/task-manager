@@ -8,21 +8,25 @@
 
 
   <div>
-    Enter the item:
-    <mat-form-field >
-      <mat-label>Item</mat-label>
-      <input matInput  value="" [formControl]="ItemFormControl" [(ngModel)]="itemName">
+<!--    Enter the item:-->
+    <app-todo-item-component style="word-wrap: break-word;flex-direction: row; align-items:stretch" *ngFor="let item of todoList.items"
+                             (deleteItem)="DeleteItemFunc(item)"
+                             [todoItem]="item"></app-todo-item-component>
+  </div>
+
+  <div style="width: 100%">
+    <mat-form-field style="align-items: stretch; width: 100%; height: auto">
+      <mat-label>Enter the item</mat-label>
+      <textarea  matInput  value=""  [formControl]="ItemFormControl" [(ngModel)]="itemName"></textarea>
+
       <mat-error *ngIf="ItemFormControl.hasError('required')">
         Name of list is <strong>required</strong>
       </mat-error>
+
     </mat-form-field>
 
-    <!-- <input [(ngModel)]="itemName"> -->
-
-
-    <button mat-raised-button color="accent" (click)="addItem()">Add item</button>
-
-    <app-todo-item-component *ngFor="let item of todoList.items" (deleteItem)="DeleteItemFunc(item)" [todoItem]="item"></app-todo-item-component>
+    <button mat-raised-button color="accent" style="float: right" (click)="addItem()">Add item</button>
   </div>
+
   <button mat-raised-button color="primary" (click)="callDelete()">Delete list</button>
 </div>
