@@ -5,13 +5,16 @@ import {DashboardAddPageComponent} from "./pages/dashboard-add-page/dashboard-ad
 import {DashboardViewPageComponent} from "./pages/dashboard-view-page/dashboard-view-page.component";
 import {LogInComponent} from "./pages/log-in/log-in.component";
 import {RegistrationComponent} from "./pages/registration/registration.component";
+import {AuthGuard} from "./services/auth.guard";
 
 const routes: Routes = [{
   path:'',
-  component: HomePageComponent
+  component: HomePageComponent,
+  canActivate: [AuthGuard]
 },{
   path:'add',
-  component: DashboardAddPageComponent
+  component: DashboardAddPageComponent,
+  canActivate: [AuthGuard]
 },{
   path:'login',
   component: LogInComponent
@@ -20,7 +23,8 @@ const routes: Routes = [{
   component: RegistrationComponent
 },{
   path:':title',
-  component: DashboardViewPageComponent
+  component: DashboardViewPageComponent,
+  canActivate: [AuthGuard]
 }];
 
 @NgModule({

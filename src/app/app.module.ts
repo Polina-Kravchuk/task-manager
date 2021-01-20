@@ -21,6 +21,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {TokenInterceptorService} from "./services/token-interceptor.service";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {AuthGuard} from "./services/auth.guard";
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    }, AuthGuard
   ],
   bootstrap: [AppComponent]
 })
