@@ -50,7 +50,7 @@
   <div>
     <mat-form-field class="add-input">
       <mat-label>Password again</mat-label>
-      <input matInput placeholder="" value="" [formControl]="passwordAgainFormControl">
+      <input matInput type="password" [formControl]="passwordAgainFormControl">
       <mat-error *ngIf="passwordAgainFormControl.hasError('required')">
         Password is <strong>required</strong>
       </mat-error>
@@ -68,5 +68,7 @@
 
   <div *ngIf="error">{{error}}</div>
   <button class="button" mat-raised-button color="accent" (click)="registrate()" >Registrate</button>
+  <!--
   <button class="button" mat-raised-button color="primary" [routerLink]="'/'" >Cansel</button>
+  -->
   </div>

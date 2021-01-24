@@ -38,7 +38,7 @@
 
 .container {
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
 
   .list {
     min-width: 260px;

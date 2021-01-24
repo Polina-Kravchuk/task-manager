@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://193.38.54.226'
-
-  //http://0ce4a913334b.ngrok.io/
+  serverUrl: 'https://testdomainfortesting.xyz'
 };
 
 /*
